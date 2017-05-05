@@ -16,11 +16,15 @@
         </ul>
         @if (Job.Worker == null)
         {
+            //Why is this a button class? It's clickable but does nothing. Only the link should be clickable
         <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
         }
         else
         {
+            //Why is this a button class? It's clickable but does nothing.
             <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+
+            //Add Active status and completed status here
 
         }
     </ul>
