@@ -8,16 +8,17 @@
 <h2>Would you like to do this job?</h2>
 <hr />
 
-<form action="Claim" class="claim-job" data-url-action="@Url.Action("Claim-Ajax", "Jobs")">
+<form data-url-action="@Url.Action("Claim", "Jobs")" class="claim-job" >
     <input type="hidden" name="jobId" value="@Model.JobId" />
     <input type="hidden" name="title" value="@Model.Title" />
     <input type="hidden" name="description" value="@Model.Description" />
+    @*<input type="hidden" name="workerId" value="@Model.WorkerId" />*@
 
 
     <h4>@Model.Title</h4>
 
-    <input type="submit" value="Claim this job" />
-    @*<p id="claim-result"></p>*@
+    <button type="submit" >Claim this job</button>
+    <p id="claim-result"></p>
 </form>
 
 
