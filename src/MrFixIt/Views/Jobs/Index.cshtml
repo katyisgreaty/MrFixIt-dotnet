@@ -17,17 +17,33 @@
 
         @if (Job.Worker == null)
         {
-            //Why is this a button class? It's clickable but does nothing. Only the link should be clickable
             <p>This job is unclaimed.</p>
 
             <h4 class="show-claim-page" class="claim-job" id="@Job.JobId"> Claim this job</h4>
-            <div id = "claim-result-@Job.JobId"></div >
+            <div id = "claim-result-@Job.JobId"></div>
         }
         else
         {
-            //Why is this a button class? It's clickable but does nothing.
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+            <li >This job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+            @if (@Job.Completed == false)
+            {
+                <p>
+                    This job is not yet complete
+                </p>
+            } else
+            {
+                <p>This job is complete!</p>
 
+            }
+
+            @*<form data-url-action="@Url.Action("Index", "Jobs")" class="complete-job" >
+                <input type="hidden" name="jobId" value="@Model.JobId" />
+                <input type="hidden" name="title" value="@Model.Title" />
+                <input type="hidden" name="description" value="@Model.Description" />
+                <input type="hidden" name="completed" value="true" />
+
+                <button type="submit">Mark as completed</button>
+            </form>*@
             //Add Active status and completed status here
 
         }

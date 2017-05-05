@@ -1,0 +1,34 @@
+﻿@model MrFixIt.Models.Job
+
+<h2>Mark as complete</h2>
+<hr />
+
+<form data-url-action="@Url.Action("Complete", "Jobs")" class="claim-job">
+    <input type="hidden" name="jobId" value="@Model.JobId" />
+    <input type="hidden" name="title" value="@Model.Title" />
+    <input type="hidden" name="description" value="@Model.Description" />
+
+    <label for="editCompleted">Name: </label>
+    <input type="text" name="editCompleted" />
+
+    <h4>@Model.Title</h4>
+
+    <button type="submit">Claim this job</button>
+
+</form>
+
+
+
+
+@*@using (Html.BeginForm())
+    {
+        //Properties hidden - edit form basically--Change to AJAX!
+        @Html.HiddenFor(model => model.JobId)
+        @Html.HiddenFor(model => model.Title)
+        @Html.HiddenFor(model => model.Description)
+
+        <h4>@Model.Title</h4>
+        <input type="submit" value="Claim This Job" />
+    }*@
+<br />
+<p>@Html.ActionLink("Refresh list", "Index")</p>

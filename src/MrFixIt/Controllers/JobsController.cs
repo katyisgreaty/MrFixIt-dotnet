@@ -50,5 +50,14 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult Index(Job job)
+        {
+            job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
+            db.Entry(job).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
