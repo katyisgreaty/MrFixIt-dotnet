@@ -63,8 +63,14 @@ namespace MrFixIt.Controllers
         [HttpPost]
         public IActionResult Activate(int id)
         {
+            var lastActiveJob = db.Jobs.FirstOrDefault(jobs => jobs.Pending == true);
             var currentJob = db.Jobs.FirstOrDefault(jobs => jobs.JobId == id);
             currentJob.Worker = db.Workers.FirstOrDefault(workers => workers.UserName == User.Identity.Name);
+
+            if(lastActiveJob != null)
+            {
+                lastActiveJob.Pending = false;
+            }
 
             currentJob.Worker.Avaliable = false;
             currentJob.Pending = true;

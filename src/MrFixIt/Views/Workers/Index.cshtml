@@ -17,8 +17,10 @@
             }
         }
 
-        <div class="activate-result"></div>
+        
         <h3>Jobs you are currently working on:</h3>
+
+        <strong><div class="activate-result"></div></strong>
         @foreach (var Job in Model.Jobs)
         {
             if (@Job.Pending == true)
