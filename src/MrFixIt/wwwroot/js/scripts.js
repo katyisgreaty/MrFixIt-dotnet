@@ -17,4 +17,17 @@
             }
         });
     });
+    $('.show-claim-page').click(function () {
+        console.log(this.id);
+        var route = '#claim-result-' + this.id;
+        //console.log(route);
+        $.ajax({
+            type: 'GET',
+            dataType: 'html',
+            url: '/Jobs/Claim/' + this.id,
+            success: function (result) {
+                $(route).html(result);
+            }
+        });
+    });
 })

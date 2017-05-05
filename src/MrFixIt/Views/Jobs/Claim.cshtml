@@ -1,9 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model MrFixIt.Models.Job
+﻿@model MrFixIt.Models.Job
 
 <h2>Would you like to do this job?</h2>
 <hr />
@@ -12,13 +7,12 @@
     <input type="hidden" name="jobId" value="@Model.JobId" />
     <input type="hidden" name="title" value="@Model.Title" />
     <input type="hidden" name="description" value="@Model.Description" />
-    @*<input type="hidden" name="workerId" value="@Model.WorkerId" />*@
 
 
     <h4>@Model.Title</h4>
 
-    <button type="submit" >Claim this job</button>
-    <p id="claim-result"></p>
+    <button type="submit">Claim this job</button>
+
 </form>
 
 
@@ -34,4 +28,5 @@
     <h4>@Model.Title</h4>
     <input type="submit" value="Claim This Job" />
 }*@
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<br />
+<p>@Html.ActionLink("Refresh list", "Index")</p>
