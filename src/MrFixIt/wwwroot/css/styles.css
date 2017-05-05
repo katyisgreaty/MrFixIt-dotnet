@@ -1,4 +1,37 @@
 ﻿body {
     padding-top: 70px;
     color: navy;
+    
+}
+
+.navbar {
+    background-image: url("https://static.pexels.com/photos/94762/pexels-photo-94762.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 500px;
+}
+
+.nester {
+    margin-top: 450px;
+}
+
+.navlinks {
+    margin-top: 450px;
+}
+
+.whitelinks a {
+    color: white !important;
+    font-size: 20px;
+}
+
+/*a {
+    color: white !important;
+    font-size: 20px;
+}*/
+
+.fix {
+    padding-top: 5px;
+    color: white !important;
+    font-size: 40px;
 }
