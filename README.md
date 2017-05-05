@@ -14,3 +14,4 @@ IN PROGRESS
 NEXT UP
 * A worker may designate one **active** job at a time. **AJAX**
 * Workers may mark jobs complete, and select a new active job. **AJAX**
+* Site needs to look more presentable and polished.

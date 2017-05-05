@@ -9,6 +9,7 @@
 <hr />
 @using (Html.BeginForm())
 {
+    //All properties hidden except claim - yes, edit form basically--Change to AJAX!
     @Html.HiddenFor(model => model.JobId)
     @Html.HiddenFor(model => model.Title)
     @Html.HiddenFor(model => model.Description)

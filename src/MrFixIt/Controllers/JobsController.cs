@@ -17,6 +17,7 @@ namespace MrFixIt.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            //On the index page you only view the jobs for that one worker?
             return View(db.Jobs.Include(i => i.Worker).ToList());
         }
 
@@ -39,6 +40,8 @@ namespace MrFixIt.Controllers
             return View(thisItem);
         }
 
+        //Still In Progress -- check functionality (works like an edit page but just for one property) -- Change to AJAX!
+        //Also, this will be similar to what the Complete and Pending functionality will be like 
         [HttpPost]
         public IActionResult Claim(Job job)
         {

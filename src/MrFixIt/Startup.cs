@@ -54,6 +54,7 @@ namespace MrFixIt
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Account}/{action=Index}/{id?}");
+                //Site opens on Index page of Account controller
             });
             app.Run(async (error) =>
             {

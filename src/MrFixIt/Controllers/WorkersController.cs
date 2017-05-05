@@ -16,6 +16,7 @@ namespace MrFixIt.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            //Only shows that worker's jobs
             var thisWorker = db.Workers.Include(i =>i.Jobs).FirstOrDefault(i => i.UserName == User.Identity.Name);
             if (thisWorker != null)
             {
@@ -32,7 +33,7 @@ namespace MrFixIt.Controllers
             return View();
         }
 
-
+        //Separate from applicationUser, you can also sign up as a worker by using the create function here
         [HttpPost]
         public IActionResult Create(Worker worker)
         {

@@ -33,6 +33,7 @@ namespace MrFixIt.Controllers
         //    return View();
         //}
 
+        //Index page in Account controller will look diff to someone if they are authenticated
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
