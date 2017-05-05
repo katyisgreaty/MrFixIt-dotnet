@@ -1,24 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-
+﻿
 @if (User.Identity.IsAuthenticated)
 {
 
     <div class="text-center">
         <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
-        <h3>Your Current Jobs:</h3>
+        <h3>Jobs in your queue:</h3>
+
         @foreach (var Job in Model.Jobs)
         {
-            <h5>@Job.Title</h5>
-
+            if (@Job.Pending == false)
+            {
+                <div class="activate-@Job.JobId">
+                    <h5>@Job.Title</h5>
+                    <button class="job-activate" value="@Job.JobId">Activate job</button>
+                </div>
+            }
         }
+
+        <div class="activate-result"></div>
+        <h3>Jobs you are currently working on:</h3>
+        @foreach (var Job in Model.Jobs)
+        {
+            if (@Job.Pending == true)
+            {
+                <h5>@Job.Title</h5>
+            }
+        }
+
         @if (Model.Avaliable)
         {
-            <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>
+            <h4>You aren't working on any jobs yet!</h4>
+            <h4>Please @Html.ActionLink("select a job", "Index", "Jobs").</h4>
         }
         else
         {

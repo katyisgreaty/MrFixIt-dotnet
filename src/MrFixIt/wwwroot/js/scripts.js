@@ -31,23 +31,37 @@
         });
     });
 
-    $('.complete-job').submit(function (event) {
-        event.preventDefault();
-        console.log("it is reaching the ajax for complete");
-        var newJob = {};
-        var jobProperties = $('.claim-job').serializeArray();
-        newJob.JobId = jobProperties[0].value;
-        newJob.Title = jobProperties[1].value;
-        newJob.Description = jobProperties[2].value;
-        newJob.Completed = job.jobProperties[3].value;
+    $('.job-activate').click(function (event) {
+        var jobId = this.value;
+        console.log(this);
+        console.log(jobId);
         $.ajax({
+            url: '/Jobs/Activate/' + jobId,
             type: 'POST',
-            url: $(this).data('url-action'),
-            datatype: 'json',
-            data: newJob,
-            success: function (success) {
-                console.log("complete worked");
+            dataType: 'json',
+            success: function (result) {
+                $('.activate-result').html('<p>' + result.title + '</p>');
             }
         });
     });
+
+    //$('.complete-job').submit(function (event) {
+    //    event.preventDefault();
+    //    console.log("it is reaching the ajax for complete");
+    //    var newJob = {};
+    //    var jobProperties = $('.claim-job').serializeArray();
+    //    newJob.JobId = jobProperties[0].value;
+    //    newJob.Title = jobProperties[1].value;
+    //    newJob.Description = jobProperties[2].value;
+    //    newJob.Completed = job.jobProperties[3].value;
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: $(this).data('url-action'),
+    //        datatype: 'json',
+    //        data: newJob,
+    //        success: function (success) {
+    //            console.log("complete worked");
+    //        }
+    //    });
+    //});
 })
