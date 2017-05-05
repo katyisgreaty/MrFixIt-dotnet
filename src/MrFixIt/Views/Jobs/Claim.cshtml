@@ -7,14 +7,30 @@
 
 <h2>Would you like to do this job?</h2>
 <hr />
-@using (Html.BeginForm())
+
+<form action="Claim" class="claim-job" data-url-action="@Url.Action("Claim-Ajax", "Jobs")">
+    <input type="hidden" name="jobId" value="@Model.JobId" />
+    <input type="hidden" name="title" value="@Model.Title" />
+    <input type="hidden" name="description" value="@Model.Description" />
+
+
+    <h4>@Model.Title</h4>
+
+    <input type="submit" value="Claim this job" />
+    @*<p id="claim-result"></p>*@
+</form>
+
+
+
+
+@*@using (Html.BeginForm())
 {
-    //All properties hidden except claim - yes, edit form basically--Change to AJAX!
+    //Properties hidden - edit form basically--Change to AJAX!
     @Html.HiddenFor(model => model.JobId)
     @Html.HiddenFor(model => model.Title)
     @Html.HiddenFor(model => model.Description)
 
     <h4>@Model.Title</h4>
     <input type="submit" value="Claim This Job" />
-}
+}*@
 <p>@Html.ActionLink("Back to list", "Index")</p>
