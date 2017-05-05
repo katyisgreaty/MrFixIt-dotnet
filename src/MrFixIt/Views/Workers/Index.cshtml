@@ -8,7 +8,7 @@
 
         @foreach (var Job in Model.Jobs)
         {
-            if (@Job.Pending == false)
+            if (@Job.Pending == false && @Job.Completed == false)
             {
                 <div class="activate-@Job.JobId">
                     <h5>@Job.Title</h5>
@@ -21,13 +21,29 @@
         <h3>Jobs you are currently working on:</h3>
 
         <strong><div class="activate-result"></div></strong>
+
         @foreach (var Job in Model.Jobs)
         {
             if (@Job.Pending == true)
             {
                 <h5>@Job.Title</h5>
+                <button class="job-complete" value="@Job.JobId">Complete job</button>
             }
         }
+
+        <h3>Jobs you have completed:</h3>
+
+        <strong><div class="complete-result"></div></strong>
+
+        @foreach (var Job in Model.Jobs)
+        {
+            if (@Job.Completed == true)
+            {
+                <h5>@Job.Title</h5>
+            }
+        }
+        
+        
 
         @if (Model.Avaliable)
         {

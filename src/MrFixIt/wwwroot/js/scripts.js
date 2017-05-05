@@ -45,6 +45,21 @@
         });
     });
 
+    $('.job-complete').click(function (event) {
+        var jobId = this.value;
+        console.log(this);
+        console.log(jobId);
+        $.ajax({
+            url: '/Jobs/Complete/' + jobId,
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+                $('.complete-result').html('<p>You just marked <em>' + result.title + '</em> as complete</p>');
+                $('.worker-available').html('<h2>You don\'t have any activated jobs. Please <a href="/Jobs">select a job</a></h2>');
+            }
+        });
+    });
+
     //$('.complete-job').submit(function (event) {
     //    event.preventDefault();
     //    console.log("it is reaching the ajax for complete");
